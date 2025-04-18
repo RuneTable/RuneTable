@@ -1,14 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SplashScreen() {
-  const navigate = useNavigate();
-
   return (
-    <div className="splash">
-      <h1>RuneTable</h1>
-      <h2>Master Your Encounters</h2>
-      <button onClick={() => navigate('/tracker')}>Enter Initiative Tracker</button>
+    <div className="splash-container">
+      <h1>Welcome to RuneTable</h1>
+      <p>Master Your Encounters</p>
+      <Link to="/tracker" className="enter-button">Enter Initiative Tracker</Link>
     </div>
   );
 }
