@@ -1,0 +1,161 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+  --bg: #121212;
+  --text: #f5f5f5;
+  --primary: #9c27b0;
+  --secondary: #03dac5;
+}
+
+.light {
+  --bg: #ffffff;
+  --text: #121212;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* App Structure */
+.app-header {
+  background: var(--primary);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--secondary);
+}
+
+.app-main {
+  padding: 2rem;
+}
+
+.app-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+}
+
+/* SplashScreen Styles */
+.splash-container {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.enter-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.enter-button:hover {
+  background-color: var(--secondary);
+}
+
+/* Tracker Styles */
+.tracker-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.add-creature-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.add-creature-form input {
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.add-creature-form button {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-creature-form button:hover {
+  background: var(--secondary);
+}
+
+.initiative-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.creature-card {
+  border: 1px solid var(--secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Coming Soon Styles */
+.coming-soon-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.coming-soon-container ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-creature-form {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
