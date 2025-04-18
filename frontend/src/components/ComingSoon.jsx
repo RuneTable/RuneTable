@@ -2,18 +2,17 @@ import React from 'react';
 
 function ComingSoon() {
   return (
-    <div className="coming-soon">
-      <h1>🧙 What’s Coming Soon to RuneTable</h1>
+    <div className="coming-soon-container">
+      <h1>Coming Soon!</h1>
+      <p>Exciting new features are in development:</p>
       <ul>
-        <li>🎲 15+ Themed Dice Sets with Elemental Trails</li>
-        <li>🧙‍♂️ Character Creation Tool (Character Forge)</li>
-        <li>📚 Full Monster, Spell, and Item Libraries</li>
-        <li>🏰 Campaign and Session Planner</li>
-        <li>🧾 Homebrew Content Support</li>
-        <li>🔐 User Accounts and Saved Sessions</li>
-        <li>💎 Premium Subscription Perks</li>
+        <li>Character Creator (Character Forge)</li>
+        <li>Encounter Builder and XP Calculator</li>
+        <li>Account System and Session Hosting</li>
+        <li>Custom Dice Skins and Themes</li>
+        <li>Marketplace and Homebrew Support</li>
       </ul>
-      <p>Stay tuned. RuneTable is just getting started.</p>
+      <p>Stay tuned, adventurer!</p>
     </div>
   );
 }
