@@ -1,46 +1,32 @@
-const express = require('express');
-const cors = require('cors');
-const http = require('http');
-const { Server } = require('socket.io');
+// © 2025 RuneTable | © 2025 Tylor Lenskold
+import express from 'express';
+import fetch from 'node-fetch';
+import cors from 'cors';
 
 const app = express();
-app.use(cors());
-const server = http.createServer(app);
+const PORT = process.env.PORT || 3001;
 
-const io = new Server(server, {
-  cors: {
-    origin: '*',
-    methods: ['GET', 'POST']
+app.use(cors());
+app.use(express.json());
+
+// Basic API route to fetch monster data from Open5e
+app.get('/api/monster/:name', async (req, res) => {
+  const monsterName = req.params.name.toLowerCase();
+  try {
+    const response = await fetch(`https://api.open5e.com/monsters/?search=${monsterName}`);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('Error fetching monster data:', error);
+    res.status(500).json({ error: 'Failed to fetch monster data.' });
   }
 });
 
-let creatures = [];
-
-io.on('connection', (socket) => {
-  console.log('A user connected');
-
-  socket.emit('updateCreatures', creatures);
-
-  socket.on('addCreature', (creature) => {
-    creatures.push(creature);
-    io.emit('updateCreatures', creatures);
-  });
-
-  socket.on('rollAll', (updatedCreatures) => {
-    creatures = updatedCreatures;
-    io.emit('updateCreatures', creatures);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
-});
-
+// Health check endpoint (useful for Render deployments)
 app.get('/', (req, res) => {
-  res.send('RuneTable backend is running!');
+  res.send('RuneTable Backend is Live!');
 });
 
-const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
